@@ -9,7 +9,7 @@
     {
       "id": 2,
       "instruction_text": "What's your favorite number?",
-      "answer_options": ["1", "2", "3", "4"],
+      "answer_options": ["1", "2", "3", "4", "42"],
       "answer": "4"
     }
   ]
