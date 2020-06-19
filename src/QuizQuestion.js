@@ -8,7 +8,6 @@ class QuizQuestion extends Component {
         }
     }
     render() {
-        // const answer_list = this.props.quiz_question.answer_options // tests choke on this, expect me to call this.props.quiz_question.answer_options.map() explicitly
         return (
             <main>
                 <section>
@@ -18,10 +17,9 @@ class QuizQuestion extends Component {
                 </section>
                 <section className="buttons">
                 <ul>
-                    {
-                        this.props.quiz_question.answer_options.map((quiz_question, index) => {
+                    {this.props.quiz_question.answer_options.map((answer_option, index) => {
                             return (
-                                <QuizQuestionButton button_text={quiz_question} 
+                                <QuizQuestionButton button_text={answer_option} 
                                 key={index} 
                                 clickHandler={this.handleClick.bind(this)} />
                             )
