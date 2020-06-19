@@ -7,21 +7,25 @@ let quizData = require('./quiz_data.json');
 class Quiz extends Component {
     constructor(props) {
         super(props);
-        this.state = {quiz_position: 2};
+        this.state = {quiz_position: 1};
     }
     showNextQuestion() {
-
+        this.setState((state, props) => ({
+            quiz_position: state.quiz_position + 1
+        }))
     }
     render() {    
         const isQuizEnd = this.state.quiz_position - 1 === quizData.quiz_questions.length;   
         // const isQuizEnd = true;
         return (
-            <div>
+            <React.Fragment>
                 {isQuizEnd ? 
                     <QuizEnd /> : 
-                    <QuizQuestion quiz_question={quizData.quiz_questions[this.state.quiz_position - 1]} showNextQuestionHandler={this.showNextQuestion.bind(this)} />
+                    <QuizQuestion 
+                        quiz_question={quizData.quiz_questions[this.state.quiz_position - 1]} 
+                        showNextQuestionHandler={this.  showNextQuestion.bind(this)} />
                 }
-            </div>
+            </React.Fragment>
         )
     }
 }
